@@ -9,7 +9,11 @@ jobs:
   publish:
     name: ${{ matrix.python-version }}
     runs-on: ubuntu-latest
-    environment: release
+    environment:
+      name: release
+      url: https://pypi.org/p/ya-django-toolkit-jp
+    permissions:
+      id-token: write # IMPORTANT: this permission is mandatory for trusted publishing
 
     strategy:
       matrix:
@@ -24,7 +28,11 @@ jobs:
       - name: Publish to PyPI
         run: |
           poetry self add poetry-git-version-plugin
-          poetry publish --build
+          poetry build
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          print-hash: true
       - name: slack-notification-success
         if: ${{ success() }}
         uses: rtCamp/action-slack-notify@v2
