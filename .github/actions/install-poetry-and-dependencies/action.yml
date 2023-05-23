@@ -1,0 +1,19 @@
+name: Install Poetry and dependencies
+inputs:
+  python-version:
+    description: "Version of python"
+    required: true
+runs:
+  using: "Composite"
+  steps:
+    - name: install poetry
+      run: pipx install poetry
+      shell: bash
+    - name: Set up Python ${{ inputs.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python-version }}
+        cache: "poetry"
+    - name: Install dependencies
+      run: poetry install --no-root --with dev
+      shell: bash
