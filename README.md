@@ -7,5 +7,5 @@
 
 ```
 $ poetry install --no-root --with dev
-$ poetry exec pre-commit install
+$ poetry run pre-commit install
 ```

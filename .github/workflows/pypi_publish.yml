@@ -1,0 +1,40 @@
+name: Publish a package to the python package index (PyPI)
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    name: ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ["3.11"]
+
+    steps:
+      - uses: ./.github/workflows/python.yml
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Publish to PyPI
+        run: |
+          poetry self add poetry-git-version-plugin
+          poetry publish -r pypi --build
+      - name: slack-notification-success
+        if: ${{ success() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_COLOR: good
+          SLACK_TITLE: "Success to Docker Test :rocket:"
+          SLACK_MESSAGE: ":closed_book: ${{ github.repository }}"
+      - name: slack-notification-failure
+        if: ${{ failure() }}
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_COLOR: danger
+          SLACK_TITLE: "Failure to Docker Test :boom:"
+          SLACK_MESSAGE: ":closed_book: ${{ github.repository }}"

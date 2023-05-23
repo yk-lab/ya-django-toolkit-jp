@@ -1,0 +1,83 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    # https://github.com/pre-commit/pre-commit-hooks
+    hooks:
+      # ファイルが有効な Python として解析されるかどうかを単純にチェックします。
+      - id: check-ast
+
+      # 大文字と小文字を区別しないファイルシステムで競合する可能性のあるファイルをチェックします。
+      - id: check-case-conflict
+
+      # 非バイナリ実行可能ファイルにシバンがあることを確認します。
+      - id: check-executables-have-shebangs
+
+      # ファイルが有効な JSON として解析されるかどうかを単純にチェックします。
+      - id: check-json
+
+      # シバンを持つ (非バイナリ) ファイルが実行可能であることを確認します。
+      - id: check-shebang-scripts-are-executable
+
+      # マージコンフリクトの残骸をチェックします。
+      - id: check-merge-conflict
+
+      # ファイルが有効な YAML として解析されるかどうかを単純にチェックします。
+      - id: check-yaml
+
+      # AWS CLI で設定した AWS シークレットの存在を確認します。
+      - id: detect-aws-credentials
+
+      # プライベートキーの存在を確認します。
+      - id: detect-private-key
+
+      # 二重引用符で囲まれた文字列を一重引用符で囲まれた文字列に置き換えます。
+      - id: double-quote-string-fixer
+
+      # ファイルが改行で終わり、改行のみであることを確認します。
+      - id: end-of-file-fixer
+
+      # 混合行末を置換またはチェックします。
+      - id: mixed-line-ending
+        args: [--fix=no]
+
+      # テストファイルの名前がテストを含んでいることを確認します。
+      - id: name-tests-test
+
+      # ブランチ名が指定されたパターンに一致するときにコミットを拒否します。
+      - id: no-commit-to-branch
+        args: [--branch, main, --branch, develop]
+
+      # 末尾の空白をトリムします。
+      - id: trailing-whitespace
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 6.0.0
+    hooks:
+      - id: flake8
+        exclude: migrations/
+        additional_dependencies:
+          - flake8-isort
+
+  - repo: https://github.com/pre-commit/mirrors-autopep8
+    rev: v2.0.2
+    hooks:
+      - id: autopep8
+        files: \.py$
+        exclude: migrations/
+
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.9.0.2
+    hooks:
+      - id: shellcheck
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.4
+    hooks:
+      - id: codespell
+        exclude: Pipfile.lock
+
+  - repo: https://gitlab.com/bmares/check-json5
+    rev: v1.0.0
+    hooks:
+      - id: check-json5
+        files: \.json5$
