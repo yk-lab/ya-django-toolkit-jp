@@ -1,0 +1,30 @@
+name: Build and Create Draft Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+
+jobs:
+  build_and_draft_release:
+    name: ${{ matrix.python-version }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ["3.11"]
+
+    steps:
+      - uses: ./.github/workflows/python.yml
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Build
+        run: |
+          poetry self add poetry-git-version-plugin
+          poetry build
+      - uses: softprops/action-gh-release@v1
+        with:
+          name: Release ${{ github.ref }}
+          draft: true
+          files: dist/*

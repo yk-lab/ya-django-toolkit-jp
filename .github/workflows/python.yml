@@ -1,0 +1,42 @@
+name: Python CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches:
+      - "**"
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ["3.11"]
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: install poetry
+        run: pipx install poetry
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "poetry"
+      - name: Install dependencies
+        run: poetry install --no-root --with dev
+      - name: Check security
+        run: |
+          poetry export --without-hashes -f requirements.txt | poetry run safety check --full-report --stdin
+      - name: Check toml syntax
+        run: |
+          poetry check
+      - name: Lint
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=1
+          git diff --relative origin/${{ github.base_ref }}... --name-only | xargs poetry run pre-commit run --files
+      # - name: Test
+      #   run: |
+      #     poetry run pytest
