@@ -6,7 +6,6 @@ on:
   pull_request:
     branches:
       - "**"
-  workflow_call:
 
 jobs:
   build:
@@ -29,6 +28,7 @@ jobs:
         run: |
           poetry check
       - name: Lint
+        if: github.event_name != 'push'
         run: |
           git fetch origin ${{ github.base_ref }} --depth=1
           git diff --relative origin/${{ github.base_ref }}... --name-only | xargs poetry run pre-commit run --files
