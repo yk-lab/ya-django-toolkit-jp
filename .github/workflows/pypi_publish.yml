@@ -23,7 +23,7 @@ jobs:
       - name: Publish to PyPI
         run: |
           poetry self add poetry-git-version-plugin
-          poetry publish -r pypi --build
+          poetry publish --build
       - name: slack-notification-success
         if: ${{ success() }}
         uses: rtCamp/action-slack-notify@v2
