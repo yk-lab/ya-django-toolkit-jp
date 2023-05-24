@@ -13,7 +13,7 @@ include = ["CHANGELOG.md"]
 
 [tool.poetry-git-version-plugin]
 make_alpha_version = true
-alpha_version_format = '{version}a{distance}+{commit_hash}'
+alpha_version_format = '{version}.post{distance}'
 
 [tool.poetry.dependencies]
 python = "^3.11"
