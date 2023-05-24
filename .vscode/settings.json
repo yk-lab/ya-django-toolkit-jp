@@ -1,0 +1,97 @@
+{
+  "beautify.language": {
+    "html": ["htm", "html", "django-html"]
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": true,
+  "editor.renderControlCharacters": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.suggest.localityBonus": true,
+  "extensions.ignoreRecommendations": false,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.associations": {
+    "**/*.html": "html",
+    "**/templates/**/*.html": "django-html",
+    "**/templates/**/*": "django-txt"
+  },
+  "mergeEditor.diffAlgorithm": "advanced",
+  "[python]": {
+    "editor.tabSize": 4,
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    "editor.insertSpaces": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": true
+    }
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[django-html]": {
+    "editor.tabSize": 2,
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.wordWrap": "on",
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.defaultFormatter": "HookyQR.beautify"
+  },
+  "[typescript]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "emmet.includeLanguages": {
+    "django-html": "html"
+  },
+  "python.analysis.diagnosticMode": "workspace",
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
+  "python.envFile": "${workspaceFolder}/.env",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.pycodestyleEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.formatting.provider": "autopep8",
+  "python.formatting.autopep8Path": "${workspaceFolder}/.venv/bin/autopep8",
+  "isort.path": ["${workspaceFolder}/.venv/bin/isort"],
+  "autoDocstring.docstringFormat": "google",
+  "files.watcherExclude": {
+    ".git": true,
+    ".venv": true,
+    "node_modules": true
+  },
+  "python.analysis.extraPaths": [
+    "app",
+    "${workspaceFolder}/.venv/lib/python3.11/site-packages"
+  ],
+  "python.autoComplete.extraPaths": [
+    "app",
+    "${workspaceFolder}/.venv/lib/python3.11/site-packages"
+  ],
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+  "problems.showCurrentInStatus": true,
+  "problems.autoReveal": true
+}
