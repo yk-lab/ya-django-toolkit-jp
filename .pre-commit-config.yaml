@@ -42,6 +42,7 @@ repos:
 
       # テストファイルの名前がテストを含んでいることを確認します。
       - id: name-tests-test
+        args: [--unittest]
 
       # ブランチ名が指定されたパターンに一致するときにコミットを拒否します。
       - id: no-commit-to-branch

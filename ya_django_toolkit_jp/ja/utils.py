@@ -50,11 +50,11 @@ def normalize(s: str) -> str:
     return unicode_normalize(remove_control_characters(s))
 
 
-def replace_hyphen(text: str, replace_hyphen: str) -> str:
+def replace_hyphen(text: str, replace_hyphen: str = '-') -> str:
     """全ての横棒を半角ハイフンに置換する
     Args:
         text (str): 入力するテキスト
-        replace_hyphen (str): 置換したい文字列
+        replace_hyphen (str): ハイフンの置換先文字列
     Returns:
         (str): 置換後のテキスト
     """
