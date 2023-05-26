@@ -13,7 +13,7 @@ include = ["CHANGELOG.md"]
 
 [tool.poetry-git-version-plugin]
 make_alpha_version = true
-alpha_version_format = '{version}.post{distance}'
+alpha_version_format = '{version}.pre{distance}'
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -21,6 +21,7 @@ django = "^4.2"
 
 [tool.taskipy.tasks]
 test = "coverage run --source ./ya_django_toolkit_jp/ -m unittest discover ./tests/"
+generate_changelog = "GITHUB_TOKEN=$(gh auth token) gh2changelog"
 
 
 [tool.poetry.group.dev.dependencies]
