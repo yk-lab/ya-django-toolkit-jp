@@ -1,5 +1,9 @@
 # Changelog
 
+## [v0.0.3](https://github.com/yk-lab/ya-django-toolkit-jp/compare/v0.0.2...v0.0.3) - 2023-05-31
+
+- feat: is_active_view テンプレートタグ テンプレート中で list で view 名を渡しやすくするように変更 by @yk-lab in https://github.com/yk-lab/ya-django-toolkit-jp/pull/11
+
 ## [v0.0.2](https://github.com/yk-lab/ya-django-toolkit-jp/compare/v0.0.1...v0.0.2) - 2023-05-26
 
 - chore: テストコードの追加 by @yk-lab in https://github.com/yk-lab/ya-django-toolkit-jp/pull/7
