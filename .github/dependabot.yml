@@ -5,17 +5,7 @@
 
 version: 2
 updates:
-  - package-ecosystem: pip
-    directory: '/' # Location of package manifests
-    schedule:
-      interval: 'daily'
-    target-branch: develop
-  - package-ecosystem: npm
-    directory: '/' # Location of package manifests
-    schedule:
-      interval: 'daily'
-    target-branch: develop
-  - package-ecosystem: docker
+  - package-ecosystem: uv
     directory: '/' # Location of package manifests
     schedule:
       interval: 'daily'
