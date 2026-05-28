@@ -23,10 +23,12 @@ Repository = "https://github.com/yk-lab/ya-django-toolkit-jp"
 Documentation = "https://github.com/yk-lab/ya-django-toolkit-jp"
 
 # オプション依存（コアは Django のみで動作する）。
-# ※ ulid-py / django-boost の扱いは #15 / #16 で変更予定。ここでは現状維持。
+# ULID は推奨の保守版 python-ulid を `[all]` に入れる。コードは ulid-py も
+# 後方互換で受け付けるため、既存ユーザーがそのまま ulid-py を継続使用しても動作する。
+# ※ django-boost は #15 でインライン撤廃予定。
 [project.optional-dependencies]
 all = [
-    "ulid-py>=1.1.0,<2.0",
+    "python-ulid>=3.0,<4.0",
     "django-boost>=2.1,<3.0",
 ]
 
