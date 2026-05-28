@@ -1,4 +1,4 @@
-from django_boost.models.mixins import TimeStampModelMixin, UUIDModelMixin
+from ._mixins import TimeStampModelMixin, UUIDModelMixin
 
 
 class BaseUUIDModel(TimeStampModelMixin, UUIDModelMixin):

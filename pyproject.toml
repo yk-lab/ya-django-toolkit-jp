@@ -25,11 +25,9 @@ Documentation = "https://github.com/yk-lab/ya-django-toolkit-jp"
 # オプション依存（コアは Django のみで動作する）。
 # ULID は推奨の保守版 python-ulid を `[all]` に入れる。コードは ulid-py も
 # 後方互換で受け付けるため、既存ユーザーがそのまま ulid-py を継続使用しても動作する。
-# ※ django-boost は #15 でインライン撤廃予定。
 [project.optional-dependencies]
 all = [
     "python-ulid>=3.0,<4.0",
-    "django-boost>=2.1,<3.0",
 ]
 
 [dependency-groups]
