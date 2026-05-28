@@ -25,7 +25,9 @@ repos:
       - id: check-yaml
 
       # AWS CLI で設定した AWS シークレットの存在を確認します。
+      # CI 環境では ~/.aws/credentials が無いため、未設定時は通すよう --allow-missing-credentials を付与。
       - id: detect-aws-credentials
+        args: [--allow-missing-credentials]
 
       # プライベートキーの存在を確認します。
       - id: detect-private-key
