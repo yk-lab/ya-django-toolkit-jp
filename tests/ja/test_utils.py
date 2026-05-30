@@ -18,9 +18,9 @@ class TestUtilsMethods(unittest.TestCase):
         # 半角濁点
         self.assertEqual(utils.unicode_normalize('サﾞシﾞスﾞセﾞソﾞ'), 'ザジズゼゾ')
         # 全角濁点
-        self.assertEqual(utils.unicode_normalize('サ゛シ゛ス゛セ゛ソ゛'), 'サ ゙シ ゙ス ゙セ ゙ソ ゙')  # noqa: E501
+        self.assertEqual(utils.unicode_normalize('サ゛シ゛ス゛セ゛ソ゛'), 'サ ゙シ ゙ス ゙セ ゙ソ ゙')
         # 濁点(12441)
-        self.assertEqual(utils.unicode_normalize('サ ゙シ ゙ス ゙セ ゙ソ ゙'), 'サ ゙シ ゙ス ゙セ ゙ソ ゙')  # noqa: E501
+        self.assertEqual(utils.unicode_normalize('サ ゙シ ゙ス ゙セ ゙ソ ゙'), 'サ ゙シ ゙ス ゙セ ゙ソ ゙')
         # unicode 濁点
         self.assertEqual(utils.unicode_normalize('ザジズゼゾ'), 'ザジズゼゾ')
         self.assertEqual(utils.unicode_normalize('ダヂヅデド'), 'ダヂヅデド')

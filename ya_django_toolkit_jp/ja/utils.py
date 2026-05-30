@@ -66,9 +66,9 @@ def replace_hyphen(text: str, replace_hyphen: str = '-') -> str:
 
 def katakana_to_hiragana(value):
     value = normalize(value)
-    return ''.join([chr(ord(ch) - 96) if 'ァ' <= ch <= 'ヶ' else ch for ch in value])  # noqa: E501
+    return ''.join([chr(ord(ch) - 96) if 'ァ' <= ch <= 'ヶ' else ch for ch in value])
 
 
 def hiragana_to_katakana(value):
     value = normalize(value)
-    return ''.join([chr(ord(ch) + 96) if 'ぁ' <= ch <= 'ゖ' else ch for ch in value])  # noqa: E501
+    return ''.join([chr(ord(ch) + 96) if 'ぁ' <= ch <= 'ゖ' else ch for ch in value])

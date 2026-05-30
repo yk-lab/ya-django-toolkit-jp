@@ -25,7 +25,8 @@
     "editor.formatOnType": false,
     "editor.insertSpaces": true,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true
+      "source.fixAll.ruff": "explicit",
+      "source.organizeImports.ruff": "explicit"
     }
   },
   "[css]": {
@@ -70,13 +71,6 @@
   "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
   "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
   "python.envFile": "${workspaceFolder}/.env",
-  "python.linting.enabled": true,
-  "python.linting.pylintEnabled": false,
-  "python.linting.pycodestyleEnabled": false,
-  "python.linting.flake8Enabled": true,
-  "python.formatting.provider": "autopep8",
-  "python.formatting.autopep8Path": "${workspaceFolder}/.venv/bin/autopep8",
-  "isort.path": ["${workspaceFolder}/.venv/bin/isort"],
   "autoDocstring.docstringFormat": "google",
   "files.watcherExclude": {
     ".git": true,

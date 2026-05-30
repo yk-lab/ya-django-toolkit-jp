@@ -32,9 +32,6 @@ repos:
       # プライベートキーの存在を確認します。
       - id: detect-private-key
 
-      # 二重引用符で囲まれた文字列を一重引用符で囲まれた文字列に置き換えます。
-      - id: double-quote-string-fixer
-
       # ファイルが改行で終わり、改行のみであることを確認します。
       - id: end-of-file-fixer
 
@@ -53,20 +50,12 @@ repos:
       # 末尾の空白をトリムします。
       - id: trailing-whitespace
 
-  - repo: https://github.com/PyCQA/flake8
-    rev: 6.0.0
+  # ruff: lint（flake8 / isort 相当）。整形は #21 で ruff format を別途導入予定。
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.15
     hooks:
-      - id: flake8
-        exclude: migrations/
-        additional_dependencies:
-          - flake8-isort
-
-  - repo: https://github.com/pre-commit/mirrors-autopep8
-    rev: v2.0.2
-    hooks:
-      - id: autopep8
-        files: \.py$
-        exclude: migrations/
+      - id: ruff-check
+        args: [--fix]
 
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.9.0.2
