@@ -5,5 +5,5 @@
 #
 # 形式: 1 行 1 コミット（フル 40 文字 hash）。"#" 行はコメント。
 
-# style: ruff format で全コードをダブルクォートに統一 (#21)
-81149fd62929cb2eac5242e6ba066847cf15daef
+# style: ruff format で全コードをダブルクォートに統一 (#21 / PR #31 squash)
+0132a6c11be4bd12e6cd184f552dc6c23d76785f

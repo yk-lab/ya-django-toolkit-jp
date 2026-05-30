@@ -46,7 +46,7 @@ class BaseAppSettings(object):
 
         getter = getattr(
             settings,
-            f"{self.prefix}SETTING_GETTER",
+            f'{self.prefix}SETTING_GETTER',
             lambda name, dflt: getattr(settings, name, dflt),
         )
         return getter(self.prefix + name, dflt)

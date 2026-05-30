@@ -10,11 +10,11 @@ class FileInfo(NamedTuple):
     content_disposition: str
 
 
-def generate_content_disposition(filename: str, mode: str = "attachment"):
+def generate_content_disposition(filename: str, mode: str = 'attachment'):
     f_name = Path(filename).name
     try:
-        f_name.encode("ascii")
-        file_expr = 'filename="{}"'.format(f_name.replace("\\", "\\\\").replace('"', r"\""))
+        f_name.encode('ascii')
+        file_expr = 'filename="{}"'.format(f_name.replace('\\', '\\\\').replace('"', r'\"'))
     except UnicodeEncodeError:
         file_expr = "filename*=utf-8''{}".format(quote(f_name))
-    return f"{mode}; {file_expr}"
+    return f'{mode}; {file_expr}'

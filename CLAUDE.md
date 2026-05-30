@@ -59,9 +59,9 @@ poetry install --no-root --with dev,all
 
 ## コーディング規約（pre-commit で強制）
 
-- **文字列はシングルクォート**: `double-quote-string-fixer` フックが `"..."` を `'...'` に書き換える。新規コードは最初からシングルクォートで書く。
-- 型ヒントを使うファイルは先頭に `from __future__ import annotations` を置く（`str | None` 記法のため）。
-- Lint は flake8 + flake8-isort、整形は autopep8。`migrations/` は除外対象。
+- **文字列はシングルクォート**: `pyproject.toml` の `[tool.ruff.format]` に `quote-style = "single"` を設定しており、`ruff format` がシングルに強制する。新規コードは最初からシングルクォートで書く。
+- 型ヒントを使うファイルは先頭に `from __future__ import annotations` を置く（`str | None` 記法。Python 3.11 では PEP 604 が native だが、慣習として継続）。
+- Lint と整形は **ruff**（`ruff check` + `ruff format`）。`pyproject.toml` の `[tool.ruff]` に集約。`migrations/` は除外対象。
 - `main` / `develop` への直接コミットは `no-commit-to-branch` フックでブロックされる。作業はブランチを切って行う。
 - codespell によるスペルチェックがあるため、英文コメント・識別子のタイポに注意。
 

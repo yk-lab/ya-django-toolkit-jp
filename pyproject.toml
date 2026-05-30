@@ -66,10 +66,11 @@ select = [
 ]
 
 # 整形（旧 autopep8 + double-quote-string-fixer の置き換え）。
-# 旧 single quote 強制を撤回し、ruff / Black エコシステム標準のダブルクォートに統一する。
+# このプロジェクトでは長らくシングルクォート運用なので、ruff の正規構成 quote-style="single"
+# でシングルに統一する（Python 文字列の意味論は同じだが、本プロジェクトの慣習に合わせる）。
 # `line-length` は [tool.ruff] を継承（=100）。
 [tool.ruff.format]
-quote-style = "double"
+quote-style = "single"
 
 # git タグからの動的バージョニング（旧 poetry-git-version-plugin 相当）。
 # タグ上は素のバージョン、未タグ build は {base}.pre{distance}（PEP 440 プレリリース）。
