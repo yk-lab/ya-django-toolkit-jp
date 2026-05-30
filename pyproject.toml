@@ -32,11 +32,9 @@ all = [
 
 [dependency-groups]
 dev = [
-    "flake8>=6.0.0,<7.0",
-    "isort>=5.12.0,<6.0",
-    "flake8-isort>=6.0.0,<7.0",
-    "autopep8>=2.0.2,<3.0",
-    "pre-commit>=3.3.2,<4.0",
+    "ruff>=0.15.0",
+    "pre-commit>=4.3,<5.0",  # pre-commit-uv>=4.2 が pre-commit>=4.3 を要求するため
+    "pre-commit-uv>=4.2",  # pre-commit のフック env を uv で構築（高速化 + wheel 取り扱いの堅牢化）
     "types-backports>=0.1.3,<0.2.0",
     "django-types>=0.17.0,<0.18.0",
     "mypy>=1.3.0,<2.0",
@@ -47,7 +45,25 @@ dev = [
 # タスクランナー（旧 taskipy 相当）。`uv run poe <task>` で実行。
 [tool.poe.tasks]
 test = "coverage run --source ./ya_django_toolkit_jp/ -m unittest discover ./tests/"
+lint = "ruff check"
 generate_changelog = { shell = "GITHUB_TOKEN=$(gh auth token) gh2changelog" }
+
+# Lint 統合（flake8 / isort / autopep8 を置換）。
+# 整形（クォート統一）は #21 で `[tool.ruff.format]` を別途追加予定。
+# 旧 flake8 の line-length=79 を緩和して 100 に。日本語コメント/文字列が多く、
+# 旧コードに散在していた `# noqa: E501` 回避が不要になる。
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["migrations"]
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+]
 
 # git タグからの動的バージョニング（旧 poetry-git-version-plugin 相当）。
 # タグ上は素のバージョン、未タグ build は {base}.pre{distance}（PEP 440 プレリリース）。

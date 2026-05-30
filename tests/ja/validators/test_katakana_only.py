@@ -2,8 +2,7 @@ import unittest
 
 from django.core.exceptions import ValidationError
 
-from ya_django_toolkit_jp.ja.validators.katakana_only import \
-    katakana_only_validator
+from ya_django_toolkit_jp.ja.validators.katakana_only import katakana_only_validator
 
 
 class TestValidator(unittest.TestCase):
