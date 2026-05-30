@@ -19,10 +19,8 @@ from django.utils.translation import gettext_lazy as _
 class TimeStampModelMixin(models.Model):
     """`created_at` / `updated_at` フィールドを提供する抽象 mixin。"""
 
-    created_at = models.DateTimeField(
-        verbose_name=_('created date'), auto_now_add=True)
-    updated_at = models.DateTimeField(
-        verbose_name=_('updated date'), auto_now=True)
+    created_at = models.DateTimeField(verbose_name=_("created date"), auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name=_("updated date"), auto_now=True)
 
     class Meta:
         abstract = True
@@ -31,8 +29,7 @@ class TimeStampModelMixin(models.Model):
 class UUIDModelMixin(models.Model):
     """主キーを UUID（`uuid4`）に置き換える抽象 mixin。"""
 
-    id = models.UUIDField(default=uuid.uuid4,
-                          primary_key=True, unique=True, editable=False)
+    id = models.UUIDField(default=uuid.uuid4, primary_key=True, unique=True, editable=False)
 
     class Meta:
         abstract = True
