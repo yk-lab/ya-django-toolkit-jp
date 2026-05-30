@@ -50,12 +50,13 @@ repos:
       # 末尾の空白をトリムします。
       - id: trailing-whitespace
 
-  # ruff: lint（flake8 / isort 相当）。整形は #21 で ruff format を別途導入予定。
+  # ruff: lint（flake8 / isort 相当）+ format（autopep8 + double-quote-string-fixer 相当）。
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.15.15
     hooks:
       - id: ruff-check
         args: [--fix]
+      - id: ruff-format
 
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.9.0.2

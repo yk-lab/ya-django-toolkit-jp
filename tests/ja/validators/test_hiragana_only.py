@@ -7,10 +7,9 @@ from ya_django_toolkit_jp.ja.validators.hiragana_only import hiragana_only_valid
 
 class TestValidator(unittest.TestCase):
     def test_hiragana_only_validator(self):
-        self.assertIsNone(hiragana_only_validator('あいうえお'))
-        self.assertRaises(
-            ValidationError, lambda: hiragana_only_validator('カキクケコ'))
+        self.assertIsNone(hiragana_only_validator("あいうえお"))
+        self.assertRaises(ValidationError, lambda: hiragana_only_validator("カキクケコ"))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

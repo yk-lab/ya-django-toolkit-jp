@@ -12,7 +12,7 @@ register = template.Library()
 
 @register.simple_tag(takes_context=True)
 def is_active_view(context, *view_names):
-    request = context.get('request')
+    request = context.get("request")
 
     _view_names = []
     for v in view_names:
@@ -21,15 +21,15 @@ def is_active_view(context, *view_names):
         elif isinstance(v, (list, tuple)):
             _view_names.extend(v)
         else:
-            raise ValueError('Invalid view name.')
+            raise ValueError("Invalid view name.")
 
-    view_name = getattr(request.resolver_match, 'view_name')
+    view_name = getattr(request.resolver_match, "view_name")
     return view_name and view_name in _view_names or False
 
 
 @register.simple_tag(takes_context=True)
 def is_active_link(context, view_name, *args, **kwargs):
-    request = context.get('request')
+    request = context.get("request")
 
     try:
         path = reverse(view_name, args=args, kwargs=kwargs)

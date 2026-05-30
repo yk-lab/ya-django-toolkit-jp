@@ -65,6 +65,12 @@ select = [
     "I",   # isort
 ]
 
+# 整形（旧 autopep8 + double-quote-string-fixer の置き換え）。
+# 旧 single quote 強制を撤回し、ruff / Black エコシステム標準のダブルクォートに統一する。
+# `line-length` は [tool.ruff] を継承（=100）。
+[tool.ruff.format]
+quote-style = "double"
+
 # git タグからの動的バージョニング（旧 poetry-git-version-plugin 相当）。
 # タグ上は素のバージョン、未タグ build は {base}.pre{distance}（PEP 440 プレリリース）。
 [tool.hatch.version]
