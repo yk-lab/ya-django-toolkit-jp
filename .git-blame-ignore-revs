@@ -1,0 +1,9 @@
+# git blame で無視するコミット一覧。
+# 設定方法（ローカル）:
+#   git config blame.ignoreRevsFile .git-blame-ignore-revs
+# GitHub の Blame ビューはこのファイルを自動で参照する。
+#
+# 形式: 1 行 1 コミット（フル 40 文字 hash）。"#" 行はコメント。
+
+# style: ruff format で全コードをダブルクォートに統一 (#21)
+81149fd62929cb2eac5242e6ba066847cf15daef
