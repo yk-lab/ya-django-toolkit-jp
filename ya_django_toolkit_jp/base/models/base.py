@@ -1,4 +1,4 @@
-from django_boost.models.mixins import TimeStampModelMixin
+from ._mixins import TimeStampModelMixin
 
 
 class BaseModel(TimeStampModelMixin):
