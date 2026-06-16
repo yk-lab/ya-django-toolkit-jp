@@ -23,8 +23,8 @@ def is_active_view(context, *view_names):
         else:
             raise ValueError('Invalid view name.')
 
-    view_name = getattr(request.resolver_match, 'view_name')
-    return view_name and view_name in _view_names or False
+    view_name = request.resolver_match.view_name
+    return (view_name and view_name in _view_names) or False
 
 
 @register.simple_tag(takes_context=True)
