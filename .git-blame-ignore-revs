@@ -7,3 +7,9 @@
 
 # style: ruff format で全コードをダブルクォートに統一 (#21 / PR #31 squash)
 0132a6c11be4bd12e6cd184f552dc6c23d76785f
+
+# style: ruff format でシングルクォートへ統一し直す（#21 撤回 / PR #32 squash）
+# ※ クォート反転（~133 行）が大半。utils/file.py の future import 追加と
+#    templatetags の B009/RUF021 refactor（2 行）の実コード変更も含むため、
+#    当該 2 行の blame は本コミットの前へスキップされる点に注意。
+6cef278014baf5606158c4ef1efff8e894212b06
