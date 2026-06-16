@@ -21,11 +21,11 @@ def default():
     """
     if _ulid is None:
         raise ImportError(
-            "ULIDField requires the `python-ulid` package (recommended) "
-            "or `ulid-py` (legacy). "
-            "Install with: pip install ya-django-toolkit-jp[all]"
+            'ULIDField requires the `python-ulid` package (recommended) '
+            'or `ulid-py` (legacy). '
+            'Install with: pip install ya-django-toolkit-jp[all]'
         )
-    if hasattr(_ulid, "api"):
+    if hasattr(_ulid, 'api'):
         # ulid-py 後方互換パス
         from ulid import providers
         from ulid.api import api
@@ -45,9 +45,9 @@ class ULIDField(models.UUIDField):
     """
 
     def __init__(self, primary_key=True, editable=False, *args, **kwargs):
-        kwargs.setdefault("primary_key", primary_key)
-        kwargs.setdefault("editable", editable)
-        kwargs.setdefault("default", default)
+        kwargs.setdefault('primary_key', primary_key)
+        kwargs.setdefault('editable', editable)
+        kwargs.setdefault('default', default)
         super().__init__(*args, **kwargs)
 
     def check(self, **kwargs):
@@ -57,12 +57,12 @@ class ULIDField(models.UUIDField):
         if _ulid is None:
             return [
                 checks.Error(
-                    "ULIDField を使うには ulid バックエンドが必要です"
-                    "（python-ulid 推奨 / ulid-py も可）。",
-                    hint="pip install ya-django-toolkit-jp[all]  "
-                    "（または: pip install python-ulid）でインストールしてください。",
+                    'ULIDField を使うには ulid バックエンドが必要です'
+                    '（python-ulid 推奨 / ulid-py も可）。',
+                    hint='pip install ya-django-toolkit-jp[all]  '
+                    '（または: pip install python-ulid）でインストールしてください。',
                     obj=self,
-                    id="ya_django_toolkit_jp.E001",
+                    id='ya_django_toolkit_jp.E001',
                 )
             ]
         return []

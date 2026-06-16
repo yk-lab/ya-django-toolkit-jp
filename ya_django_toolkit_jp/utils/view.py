@@ -15,4 +15,4 @@ def get_viewname_with_appname(
             appname = resolver_match.app_name
         else:
             appname = default_appname
-    return f"{appname}:{viewname}" if appname else f"{viewname}"
+    return f'{appname}:{viewname}' if appname else f'{viewname}'

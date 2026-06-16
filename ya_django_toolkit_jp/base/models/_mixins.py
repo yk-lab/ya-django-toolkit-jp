@@ -19,8 +19,8 @@ from django.utils.translation import gettext_lazy as _
 class TimeStampModelMixin(models.Model):
     """`created_at` / `updated_at` フィールドを提供する抽象 mixin。"""
 
-    created_at = models.DateTimeField(verbose_name=_("created date"), auto_now_add=True)
-    updated_at = models.DateTimeField(verbose_name=_("updated date"), auto_now=True)
+    created_at = models.DateTimeField(verbose_name=_('created date'), auto_now_add=True)
+    updated_at = models.DateTimeField(verbose_name=_('updated date'), auto_now=True)
 
     class Meta:
         abstract = True
